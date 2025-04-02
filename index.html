@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Partiendo la quinta clase</title>
+        <style>
+            * { margin: 0; padding: 0; }
+            body { font-family: monospace; text-align: center; }
+            table { margin: 5vh auto; text-align: left; }
+            table tr td { padding: 0.3rem; }
+            table tr td:nth-child(1) { color: #aaa; text-align: right; padding-right: 1rem; }
+            table tr td:nth-child(2) { font-weight: bolder; }
+        </style>
+    </head>
+    <body>
+        <table></table>
+    <script>
+            const visualizacion = document.querySelector("table");
+            function plecas(numero){
+                var visual = "";
+                for(let x = 0; x < numero; x++){
+                    visual = visual+"|";
+                }
+                return visual;
+            }
+            async function datos() {
+                const consulta = await fetch("https://raw.githubusercontent.com/profesorfaco/opr/main/clase-05/datos.json");
+                const data = await consulta.json();
+                // ya tengo los datos de proyectos con nota 7
+                console.log(data);
+                // ahora armo un arreglo que tengan sólo nombres de Profes'
+                var profes = [];
+                data.forEach((x) => {profes.push(x.tutor)});
+                console.log(profes);
+                // https://gist.github.com/ralphcrisostomo/3141412?permalink_comment_id=2315571#gistcomment-2315571 
+                // puedo contar las veces que se repiten los nombres de cada Profe'
+                var conteo = profes.reduce((a,b)=>((a[a.findIndex(d=>d.profesor===b)]||a[a.push({profesor:b,veces:0})-1]).veces++,a),[]);
+                console.log(conteo);
+                // creo otra variable, a la que empujaré nombres de Profes' con una condición
+                var nombres = [];
+                conteo.forEach((x) => {
+                    visualizacion.innerHTML+=`<tr><td>${x.profesor}</td><td>${plecas(x.veces)}</td></tr>`;
+                    if (x.veces > 3) { nombres.push(x.profesor) }
+                });
+                // revisemos el siguiente dato en la consola para avanzar
+                console.log("HAN GUIADO A MÁS DE TRES NOTAS SIETE: " + nombres);
+            }
+            datos().catch((error) => console.error(error));
+        </script>
+    </body>
+</html>
