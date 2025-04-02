@@ -40,7 +40,7 @@
             }
             async function datos() {
                 const consulta = await fetch("https://raw.githubusercontent.com/profesorfaco/opr/main/clase-05/datos.json");
-                const data = await consulta.json();
+                data = await consulta.json();
                 // ya tengo los datos de proyectos con nota 7
                 console.log(data);
                 // ahora armo un arreglo que tengan sólo nombres de Profes'
