@@ -11,6 +11,25 @@
             table tr td { padding: 0.3rem; }
             table tr td:nth-child(1) { color: #aaa; text-align: right; padding-right: 1rem; }
             table tr td:nth-child(2) { font-weight: bolder; }
+
+            aside {
+                width: min(90%, 500px);
+                margin: 5vh auto 10vh auto;
+                text-align: left;
+                background: #fafafa;
+                box-shadow: 0 0 2px #ddd;
+                border-radius: 5px;}
+            select {
+                margin: 1rem;
+                padding: 0.2rem 0;
+                width: calc(100% - rem);
+                font-size: 0.8rem;
+                font-family: monospace;}
+            ol {
+                padding: 0 2rem 2rem 3rem;}
+            ol li{
+                margin-bottom: 0.5rem;}
+                  
         </style>
     </head>
     <body>
@@ -67,7 +86,7 @@
                 var listado = "";
                 data.forEach((x) => {
                     if (x.tuttor == p) {
-                        listado += <lit>${x.student}<li>´;}); 
+                        listado += <lit>${x.student}<li>´;})
         
         </script>
     </body>
