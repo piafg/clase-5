@@ -77,15 +77,23 @@
                 });
                 // revisemos el siguiente dato en la consola para avanzar
                 console.log("HAN GUIADO A MÁS DE TRES NOTAS SIETE: " + nombres);
-                document.querySelector("select").addEventListener("change", funtion (){
-                    document.querySelector("ol").innnerHTML = estudiantes(this.value;});
+                document.querySelector("select").addEventListener("change", funtion ()
+                    {
+                    document.querySelector("ol").innerHTML = estudiantes(this.value);
+            });
             }
             datos().catch((error) => console.error(error));
            function estudiantes(p){
                 var listado = "";
                 data.forEach((x) => {
                     if (x.tuttor == p) {
-                        listado += <lit>${x.student}<li>´;})
+                        listado +=`<li>${x.student} (<a href= "${x.pdf}"
+                        target="_blank"></use></svg> memoria</a>)</li>`;}
+                    else {
+                        listado += `<li>$(x.student}<li>`;
+                    }
+                    }
+                             });
         
         </script>
     </body>
