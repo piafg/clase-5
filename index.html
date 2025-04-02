@@ -15,6 +15,20 @@
     </head>
     <body>
         <table></table>
+        <aside>
+            <select></select>
+            <option value="">Selecciona</option>
+            <option value="ALLARD, J.">José Allard</option>
+            <option value="ALVAREZ, P.">Alvarez</option>
+            <option value="DURAN, I.">Duran</option>
+            <option value="FIGUEROA, A.">Figueroa</option>
+            <option value="GONZÁLEZ, B.">González</option>
+            <option value="MANNS, A.">Manns</option>
+            <option value="MOLLENHAUER, P.">Mollenhauer</option>
+            <option value="MORENO, K.">Moreno</option>
+            <option value="RAMIREZ, P.">Ramirez</option>
+            <option value="ULIBARRI, R.">Ulibarri</option>
+            <option value="VIVANCO, T.">Vivanco </option>
     <script>
             const visualizacion = document.querySelector("table");
             function plecas(numero){
@@ -45,8 +59,16 @@
                 });
                 // revisemos el siguiente dato en la consola para avanzar
                 console.log("HAN GUIADO A MÁS DE TRES NOTAS SIETE: " + nombres);
+                document.querySelector("select").addEventListener("change", funtion (){
+                    document.querySelector("ol").innnerHTML = estudiantes(this.value;});
             }
             datos().catch((error) => console.error(error));
+           function estudiantes(p){
+                var listado = "";
+                data.forEach((x) => {
+                    if (x.tuttor == p) {
+                        listado += <lit>${x.student}<li>;}); 
+        
         </script>
     </body>
 </html>
